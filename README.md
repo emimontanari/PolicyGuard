@@ -72,6 +72,7 @@ Toda decisión queda registrada con un código de motivo, la regla que la dispar
 | [11 — Evidencia de mercado](docs/11-evidencia-de-mercado.md) | Datos del relevamiento que originó la idea |
 | [12 — Glosario](docs/12-glosario.md) | Términos técnicos y de negocio |
 | [13 — Productos y servicios](docs/13-productos-y-servicios.md) | Core, Runtime y bot a medida: a quién se le vende cada uno |
+| [14 — MVP del Core](docs/14-mvp-core.md) | El alcance mínimo de la demo de una semana y sus criterios de aceptación |
 
 ## Principio rector
 

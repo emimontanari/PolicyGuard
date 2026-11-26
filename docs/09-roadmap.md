@@ -21,6 +21,8 @@ Criterio de salida: el corpus permite medir al menos teléfono, email, link y da
 
 **Pregunta:** ¿el motor determinístico detecta lo que tiene que detectar, con evidencia?
 
+> El alcance detallado de esta fase —qué entra, qué queda afuera, criterios de aceptación y plan de cinco días— está en [14 — MVP del Core](14-mvp-core.md).
+
 Alcance:
 
 - Normalizador (Unicode, homóglifos, separadores, leetspeak).
