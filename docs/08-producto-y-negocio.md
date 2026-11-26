@@ -16,19 +16,19 @@ La respuesta corta: primero como servicio, después como módulo, y solo al fina
 
 **Regla:** el servicio financia el producto. La pieza reutilizable sale de hacer el mismo trabajo tres veces, no de imaginarlo en una pizarra.
 
-## Tres líneas de producto
+## Tres proyectos independientes
 
 La misma capacidad se empaqueta de tres formas, para tres compradores distintos:
 
-| Línea | Qué vende | Comprador | Cobro |
+| Proyecto | Qué vende | Comprador | Cobro |
 |---|---|---|---|
-| **Core** | La capa de cumplimiento | Agencias y empresas que ya tienen bot | Licencia mensual o por volumen |
-| **Runtime** | El chasis white-label para armar bots | Agencias sin equipo técnico; empresas sin bot | Licencia por tenant + implementación |
-| **Bot a medida** | El servicio completo | Cliente final sin agencia | Proyecto + soporte |
+| [Core](../projects/01-core.md) | La capa de cumplimiento | Agencias y empresas que ya tienen bot | Licencia mensual o por volumen |
+| [Runtime](../projects/02-runtime.md) | El chasis white-label para armar bots | Agencias sin equipo técnico; empresas sin bot | Licencia por tenant + implementación |
+| [Bot a medida](../projects/03-bot-a-medida.md) | El servicio completo | Cliente final sin agencia | Proyecto + soporte |
 
 **Regla de canal:** nunca vender el bot directo a un cliente de un partner. Si se compite con las agencias que revenden la capa, se pierde la distribución.
 
-El detalle de cada línea, el conflicto de canal y los precios hipótesis están en [13 — Productos y servicios](13-productos-y-servicios.md).
+Cada proyecto puede construirse y venderse por separado. El detalle, el conflicto de canal y los precios hipótesis están en [13 — La familia PolicyGuard](13-productos-y-servicios.md).
 
 ## Compradores (ICP)
 

@@ -27,7 +27,9 @@ Toda regla tiene los mismos campos, sin importar la tecnología:
 
 ## Ejemplo declarativo
 
-```yaml
+El formato concreto se decide al implementar. Lo que importa son los campos, no la herramienta.
+
+```text
 id: ml.contact.phone
 version: 1.2.0
 category: contact_data

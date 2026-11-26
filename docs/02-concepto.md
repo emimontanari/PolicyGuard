@@ -106,7 +106,7 @@ Sin esto no hay auditoría, y sin auditoría no hay producto.
 
 ## Qué NO es PolicyGuard
 
-> Nota de alcance: en este documento, "PolicyGuard" se refiere al **Core**, la capa de cumplimiento. Las líneas Runtime (chasis del bot) y bot a medida (servicio) se describen en [13 — Productos y servicios](13-productos-y-servicios.md).
+> Nota de alcance: en este documento, "PolicyGuard" se refiere al **Core**, la capa de cumplimiento. Los proyectos Runtime (chasis del bot) y Bot a medida (servicio) se describen en [13 — La familia PolicyGuard](13-productos-y-servicios.md).
 
 - **No es un chatbot.** No tiene personalidad ni genera conversación.
 - **No es un orquestador de agentes.** No decide qué tool usar.

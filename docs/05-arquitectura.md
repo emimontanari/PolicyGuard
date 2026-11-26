@@ -197,15 +197,16 @@ Estrategias:
 
 Ningún modo de falla puede terminar en "se envió sin evaluar" de forma silenciosa.
 
-## Portabilidad
+## Independencia tecnológica
 
-Para no quedar atado a una tecnología:
+La arquitectura describe responsabilidades, no herramientas. La implementación se decide recién cuando se elige qué proyecto construir primero.
 
-- El contrato de detectores es un esquema de datos, no una interfaz de un lenguaje.
-- Las reglas son YAML/JSON, no código.
-- El motor puede implementarse en TypeScript, Python, Go o Rust.
-- El almacenamiento puede ser Postgres, MySQL o un servicio gestionado.
-- La cola puede ser Redis, SQS, RabbitMQ o una tabla con locks.
-- El panel puede ser Next.js, Remix, Django o lo que el equipo use.
+Lo que debe sobrevivir a cualquier elección:
+
+- **Contratos de datos:** los detectores, las reglas y las decisiones se describen como esquemas, no como interfaces de una herramienta.
+- **Reglas declarativas:** una regla es un dato versionado, no código compilado.
+- **Dependencias reemplazables:** ningún proveedor de modelos, almacenamiento o mensajería es obligatorio.
+- **Portabilidad del corpus:** las conversaciones etiquetadas se exportan y se reutilizan en cualquier implementación.
+- **Separación entre evaluación y entrega:** el motor decide; el transporte envía. Se pueden cambiar por separado.
 
 Lo único que no se negocia: **determinación, versión, evidencia y tests.**

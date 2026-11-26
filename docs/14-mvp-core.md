@@ -21,12 +21,12 @@ Si esa demo convence, el MVP cumplió. Si necesita explicación, no cumplió.
 | Corpus | 100 conversaciones sintéticas + 20 reales anonimizadas, etiquetadas | Sin datos no hay métricas |
 | Normalización | Unicode, espacios invisibles, separadores, leetspeak básico, números escritos | Cubre la ofuscación trivial |
 | Detectores | Teléfono, email, URL, datos de pago | Las cuatro categorías críticas |
-| Motor de reglas | YAML con severidad y acción | La regla es dato, no código |
+| Motor de reglas | Reglas declarativas con severidad y acción | La regla es dato, no código |
 | Acciones | allow / redact / block / escalate | Demuestra el modelo completo |
 | Contexto | Allowlist de números de pedido y códigos de producto | Evita los falsos positivos obvios |
-| Registro | JSON con decisión, regla, evidencia y latencia | Explicabilidad |
+| Registro | Decisión, regla, evidencia y latencia | Explicabilidad |
 | Métricas | Precisión y recall por categoría | El argumento de venta |
-| CLI | Un comando corre el replay y genera el reporte | Reproducible por cualquiera |
+| Ejecución | Un comando corre el replay y genera el reporte | Reproducible por cualquiera |
 
 ## Fuera de alcance (a propósito)
 
@@ -45,41 +45,25 @@ Todo eso existe en la documentación, pero **no en la semana uno**. Agregarlo an
 ## Arquitectura mínima
 
 ```text
-corpus/ (JSONL etiquetado)
+corpus etiquetado
    │
    ▼
-CLI ──▶ normalizador ──▶ detectores ──▶ motor de reglas ──▶ decisión
-                                                             │
-                                              ┌──────────────┴──────────────┐
-                                              ▼                             ▼
-                                        reporte JSON                  reporte legible
+ejecución ──▶ normalizador ──▶ detectores ──▶ motor de reglas ──▶ decisión
+                                                                  │
+                                                   ┌──────────────┴──────────────┐
+                                                   ▼                             ▼
+                                            reporte exportable            reporte legible
 ```
 
 Sin red, sin servicios externos, sin secretos. Se corre en una máquina.
 
-## Estructura sugerida del repositorio
+## Separación conceptual
 
-```text
-core/
-├── corpus/
-│   ├── synthetic.jsonl
-│   ├── real-anonymized.jsonl
-│   └── labels.jsonl
-├── rules/
-│   ├── marketplace.contact.phone.yaml
-│   ├── marketplace.contact.email.yaml
-│   ├── marketplace.link.external.yaml
-│   └── marketplace.payment.data.yaml
-├── src/
-│   ├── normalize/
-│   ├── detect/
-│   ├── engine/
-│   └── cli/
-├── reports/
-└── README.md
-```
+- **Datos:** corpus etiquetado, reglas declarativas y sus casos de prueba.
+- **Núcleo:** normalización, detección, decisión y registro.
+- **Salida:** reporte legible y exportable.
 
-Los nombres son una propuesta. Lo importante es separar **datos** (corpus, reglas) de **código** (normalización, detección, motor).
+La forma concreta de organizarlo se decide al implementar. Lo que no se mezcla: datos y código.
 
 ## Las cuatro reglas iniciales
 
@@ -137,15 +121,7 @@ Si falla uno, no está listo. No se negocia con "casi".
 | 4 | Replay, registro y métricas | Reporte con precisión, recall y latencia |
 | 5 | Demo y pulido | Video de 3 minutos + README + casos de borde |
 
-## Stack sugerido
-
-No hay una elección obligatoria. Para la semana uno:
-
-- **Recomendado:** TypeScript + Node.js. Es el stack más fuerte del perfil, arranca rápido y tiene librerías maduras para teléfonos, URLs y YAML.
-- **Alternativa:** Python. Mejor ecosistema para parsing de teléfonos y NLP; más lento para el CLI.
-- **Descartado para el MVP:** Go o Rust. El objetivo es aprender, no optimizar.
-
-La regla: **el stack no puede ser la excusa para no terminar en una semana.**
+La elección de tecnología queda fuera de este documento. Se decide al arrancar la construcción, cuando ya está claro qué proyecto va primero.
 
 ## Riesgos del MVP
 
@@ -153,7 +129,7 @@ La regla: **el stack no puede ser la excusa para no terminar en una semana.**
 |---|---|
 | El corpus sintético es irreal | Sumar 20 conversaciones reales anonimizadas desde el día uno |
 | Los detectores se vuelven un proyecto | Limitar a cuatro categorías y un formato por detector |
-| El motor de reglas se sobre-diseña | YAML plano, sin DSL, sin plugins |
+| El motor de reglas se sobre-diseña | Formato declarativo simple, sin DSL, sin plugins |
 | Se busca precisión perfecta | Aceptar 95/98 y documentar los casos abiertos |
 | Se agrega UI "para que se vea lindo" | El reporte legible alcanza; la UI es fase 3 |
 

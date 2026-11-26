@@ -1,6 +1,6 @@
 # 07 — Integraciones
 
-PolicyGuard no vive solo: se enchufa. Este documento define el contrato de integración, independiente de la plataforma y del stack del cliente.
+PolicyGuard no vive solo: se enchufa. Este documento define el contrato de integración, independiente de la plataforma y del entorno del cliente.
 
 ## Contrato mínimo
 
@@ -116,37 +116,30 @@ Cada plataforma aporta su **pack de reglas** y su **contexto**. El motor es el m
 
 ## Helpdesks y CRMs
 
-Integración por webhook o por API:
+Integración por evento o por consulta:
 
-- **Freshdesk / Zendesk / Intercom:** el agente responde dentro de la herramienta; PolicyGuard evalúa antes de enviar.
-- **HubSpot / Salesforce:** registrar la decisión en el timeline del contacto.
-- **Slack / Teams:** alertas de bloqueos críticos y cola de revisión.
+- **Helpdesks de atención:** el agente responde dentro de la herramienta; la capa evalúa antes de enviar.
+- **CRMs:** registrar la decisión en el historial del contacto.
+- **Mensajería interna:** alertas de bloqueos críticos y cola de revisión.
 
 La regla es siempre la misma: **la evaluación ocurre antes del envío, no después.**
 
-## SDK
+## Interfaz de integración
 
-Un SDK cómodo reduce la fricción de adopción. Contrato conceptual:
+Una interfaz cómoda reduce la fricción de adopción. Contrato conceptual, sin lenguaje ni herramienta:
 
-```ts
-const guard = new PolicyGuard({ tenantId, apiKey });
+```text
+resultado = evaluar(mensaje, contexto, política)
 
-const result = await guard.evaluate({
-  direction: "outbound",
-  text: respuesta,
-  context: { conversationId, platform, country },
-});
-
-if (result.decision === "allow") {
-  await enviar(respuesta, result.decisionToken);
-} else if (result.decision === "escalate") {
-  await derivarAHumano(result);
-} else {
-  await regenerarConMotivo(result.reasonCode);
-}
+si resultado.decisión == permitir:
+    enviar(mensaje, resultado.token)
+si resultado.decisión == derivar:
+    enviar_a_revisión(resultado)
+si no:
+    regenerar_con_motivo(resultado.motivo)
 ```
 
-El SDK no debe esconder la decisión. Debe hacerla fácil de leer y de registrar.
+La interfaz no debe esconder la decisión. Debe hacerla fácil de leer y de registrar.
 
 ## Panel humano
 

@@ -42,7 +42,7 @@ Toda decisión queda registrada con un código de motivo, la regla que la dispar
 - Un motor de reglas versionadas por plataforma, con tests y métricas.
 - Una API, una librería o un sidecar que se enchufa a un asistente existente.
 - Un producto de riesgo: se vende para evitar sanciones, no para "tener IA".
-- La base de una familia de tres líneas: Core (la capa), Runtime (el chasis del bot) y bot a medida (servicio). Ver [13 — Productos y servicios](docs/13-productos-y-servicios.md).
+- La base de una familia de tres proyectos independientes: Core (la capa), Runtime (el chasis del bot) y Bot a medida (servicio). Ver [13 — La familia PolicyGuard](docs/13-productos-y-servicios.md).
 
 **No es:**
 - Un bot ni un constructor de chatbots.
@@ -65,14 +65,26 @@ Toda decisión queda registrada con un código de motivo, la regla que la dispar
 | [04 — Modelo de reglas](docs/04-modelo-de-reglas.md) | Anatomía de una regla, categorías, detección, ofuscación, falsos positivos |
 | [05 — Arquitectura](docs/05-arquitectura.md) | Componentes, topologías de despliegue, datos, latencia, seguridad |
 | [06 — Calidad y evals](docs/06-calidad-y-evals.md) | Corpus, métricas, testing, red teaming, mejora continua |
-| [07 — Integraciones](docs/07-integraciones.md) | Contrato de integración, marketplaces, helpdesks, SDK |
+| [07 — Integraciones](docs/07-integraciones.md) | Contrato de integración, marketplaces, helpdesks, interfaz |
 | [08 — Producto y negocio](docs/08-producto-y-negocio.md) | Compradores, oferta, precios, canales, plan de 90 días |
 | [09 — Roadmap](docs/09-roadmap.md) | Fases, alcance del MVP, criterios de salida |
 | [10 — Riesgos y preguntas abiertas](docs/10-riesgos-y-preguntas-abiertas.md) | Lo que puede salir mal y lo que falta validar |
 | [11 — Evidencia de mercado](docs/11-evidencia-de-mercado.md) | Datos del relevamiento que originó la idea |
 | [12 — Glosario](docs/12-glosario.md) | Términos técnicos y de negocio |
-| [13 — Productos y servicios](docs/13-productos-y-servicios.md) | Core, Runtime y bot a medida: a quién se le vende cada uno |
+| [13 — La familia PolicyGuard](docs/13-productos-y-servicios.md) | Una idea, tres proyectos independientes y sus reglas de convivencia |
 | [14 — MVP del Core](docs/14-mvp-core.md) | El alcance mínimo de la demo de una semana y sus criterios de aceptación |
+
+## Proyectos
+
+La idea está segmentada en tres proyectos. Cada uno se puede leer, construir y vender por separado; juntos forman la familia.
+
+| Proyecto | Qué es | Puede vivir solo |
+|---|---|---|
+| [01 — Core](projects/01-core.md) | La capa de cumplimiento para quien ya tiene un bot | Sí, sin Runtime ni Bot |
+| [02 — Runtime](projects/02-runtime.md) | El chasis white-label para armar bots, con la capa incluida | Sí, incluye el Core |
+| [03 — Bot a medida](projects/03-bot-a-medida.md) | El servicio completo para un cliente final | Sí, con o sin la familia |
+
+La regla de convivencia, el orden recomendado y los precios hipótesis están en [13 — La familia PolicyGuard](docs/13-productos-y-servicios.md).
 
 ## Principio rector
 

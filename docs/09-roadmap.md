@@ -2,7 +2,7 @@
 
 El roadmap está ordenado por **riesgo a validar**, no por features. Cada fase existe para responder una pregunta antes de invertir en la siguiente.
 
-> Las tres líneas de producto (Core, Runtime y bot a medida) y su orden de apertura se definen en [13 — Productos y servicios](13-productos-y-servicios.md). Este roadmap ejecuta primero el **Core**; el Runtime aparece recién en la fase 5, cuando el mercado lo pida.
+> Los tres proyectos (Core, Runtime y Bot a medida) y su orden de apertura se definen en [13 — La familia PolicyGuard](13-productos-y-servicios.md). Este roadmap ejecuta primero el **Core**; el Runtime aparece recién en la fase 5, cuando el mercado lo pida.
 
 ## Fase 0 — Concepto y corpus (semana 1)
 
