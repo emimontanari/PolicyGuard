@@ -42,6 +42,7 @@ Toda decisión queda registrada con un código de motivo, la regla que la dispar
 - Un motor de reglas versionadas por plataforma, con tests y métricas.
 - Una API, una librería o un sidecar que se enchufa a un asistente existente.
 - Un producto de riesgo: se vende para evitar sanciones, no para "tener IA".
+- La base de una familia de tres líneas: Core (la capa), Runtime (el chasis del bot) y bot a medida (servicio). Ver [13 — Productos y servicios](docs/13-productos-y-servicios.md).
 
 **No es:**
 - Un bot ni un constructor de chatbots.
@@ -70,6 +71,7 @@ Toda decisión queda registrada con un código de motivo, la regla que la dispar
 | [10 — Riesgos y preguntas abiertas](docs/10-riesgos-y-preguntas-abiertas.md) | Lo que puede salir mal y lo que falta validar |
 | [11 — Evidencia de mercado](docs/11-evidencia-de-mercado.md) | Datos del relevamiento que originó la idea |
 | [12 — Glosario](docs/12-glosario.md) | Términos técnicos y de negocio |
+| [13 — Productos y servicios](docs/13-productos-y-servicios.md) | Core, Runtime y bot a medida: a quién se le vende cada uno |
 
 ## Principio rector
 
